@@ -2,15 +2,20 @@
 <html>
 <head>
     <title></title>
-    <style type="text/css">
-        .is-loading {
-            background-color: red;
-        }
-    </style>
 </head>
 <body>
     <div id="root">
-        <button :disabled="isDisabled" @click="disableButton">Click Me</button>
+        <h1>All Tasks</h1>
+
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+
+        <h1>Incomplete Tasks</h1>
+
+        <ul>
+            <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
@@ -20,12 +25,19 @@
             el: '#root',
             
             data: {
-                isDisabled: false,
+                tasks: [
+                    { description: 'Go to the store', completed: true },
+                    { description: 'Finish screencast', completed: false },
+                    { description: 'Make donation', completed: false },
+                    { description: 'Clear inbox', completed: false },
+                    { description: 'Make dinner', completed: false },
+                    { description: 'Clean room', completed: true },
+                ],
             },
 
-            methods: {
-                disableButton() {
-                    this.isDisabled = ! this.isDisabled;
+            computed: {
+                incompleteTasks() {
+                    return this.tasks.filter(task => ! task.completed);
                 },
             },
         });
