@@ -8,13 +8,22 @@
         <h1>All Tasks</h1>
 
         <ul>
-            <li v-for="task in tasks" v-text="task.description"></li>
+            <li v-for="task in tasks">
+                {{ task.description }}
+                <input type="checkbox" v-model="task.completed" >
+            </li>
         </ul>
 
         <h1>Incomplete Tasks</h1>
 
         <ul>
             <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
+
+        <h1>Complete Tasks</h1>
+
+        <ul>
+            <li v-for="task in completeTasks" v-text="task.description"></li>
         </ul>
     </div>
     
@@ -38,6 +47,10 @@
             computed: {
                 incompleteTasks() {
                     return this.tasks.filter(task => ! task.completed);
+                },
+
+                completeTasks() {
+                    return this.tasks.filter(task => task.completed);
                 },
             },
         });
