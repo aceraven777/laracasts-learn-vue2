@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="root">
-        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
+        <button :disabled="isDisabled" @click="disableButton">Click Me</button>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
@@ -20,12 +20,12 @@
             el: '#root',
             
             data: {
-                isLoading: false,
+                isDisabled: false,
             },
 
             methods: {
-                toggleClass() {
-                    this.isLoading = ! this.isLoading;
+                disableButton() {
+                    this.isDisabled = ! this.isDisabled;
                 },
             },
         });
