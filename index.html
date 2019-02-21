@@ -11,8 +11,11 @@
 </head>
 <body>
     <div id="root" class='container'>
-        <message title="Hello World" body="Lorem ipsum dolar sit amet."></message>
-        <message title="Hello Univers" body="Bla Bla Bla."></message>
+        <modal v-if="showModal" @close="showModal = false">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ad odit itaque quam exercitationem non inventore perferendis aliquid dolorum, culpa recusandae distinctio modi amet necessitatibus, consequatur optio ipsum ipsam atque.</p>
+        </modal>
+
+        <button @click="showModal = true">Show Modal</button>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
