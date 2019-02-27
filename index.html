@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>My App</title>
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
-    <style type="text/css">
-        body {
-            padding-top: 40px;
-        }
-    </style>
 </head>
 <body>
     <div id="root" class='container'>
-        <modal>
-            <template slot="header">My Title</template>
+        <progress-view inline-template>
+            <div>
+                <h1>Your Progress Through This Course Is {{ completionRate }}%</h1>
 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae incidunt, veniam placeat aut quam autem maxime in? Necessitatibus adipisci assumenda, eveniet corporis, asperiores placeat ducimus voluptates eligendi eaque amet inventore.
-
-            <template slot="footer">
-                <button class="button is-success">Save changes</button>
-                <button class="button">Cancel</button>
-            </template>
-        </modal>
+                <p><button @click="completionRate += 10">Update Completion Rate</button></p>
+            </div>
+        </progress-view>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
