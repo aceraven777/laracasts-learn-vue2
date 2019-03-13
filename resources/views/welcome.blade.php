@@ -7,16 +7,11 @@
         <title>My App</title>
     </head>
     <body>
-        <div id="one">
-            <h1>
-                @{{ shared.user.name }}
-            </h1>
-        </div>
+        <div id="app">
+            {{-- <input type="text" v-model="coupon"> --}}
+            {{-- <input type="text" :value="coupon" @input="coupon = $event.target.value"> --}}
 
-        <div id="two">
-            <h1>
-                @{{ shared.user.name }}
-            </h1>
+            <coupon v-model="coupon">
         </div>
         
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
