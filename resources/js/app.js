@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Notification from './components/Notification.vue';
+import './bootstrap';
+import router from './routes';
 
 new Vue({
     el: '#app',
 
-    components: { Notification }
+    router
 });
